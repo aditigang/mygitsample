@@ -1,0 +1,35 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "statement1",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::488599217855:root"
+            },
+            "Action": [
+                "s3:PutObject",
+                "s3:DeleteObject"
+            ],
+            "Resource": "arn:aws:s3:::my-bucket-aditi/*"
+        },
+        {
+            "Sid": "statement2",
+            "Effect": "deny",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::my-bucket-aditi/MySecretFolder/*"
+        },
+        {
+            "Sid": "statement3",
+            "Effect": "allow",
+            "Principal": {
+                "AWS": "488599217855"
+            },
+            "Action": "s3:Getobject",
+            "Resource": "arn:aws:s3:::my-bucket-aditi/*"
+        }
+    ]
+}
